@@ -22,7 +22,7 @@ qzhao-mbp:consul qzhao$ cat service.json
 ```
 ![](img/local-consul.png)
 
-## 3. install influxdb and start in master
+## 3. install influxdb and start influxdb in master
 
 ```
 brew install influxdb
@@ -45,7 +45,8 @@ password:
 ```
 curl -XPOST http://localhost:8086/query --data-urlencode "q=CREATE DATABASE prometheus"
 ```
-
+![](img/1.png)
+![](img/11.png)
 ## 4. build remote_storage_adapter in master
 
 ### set go env in .bash_profile
@@ -65,8 +66,7 @@ go get github.com/prometheus/prometheus/documentation/examples/remote_storage/re
 INFLUXDB_PW=prom $GOPATH/bin/remote_storage_adapter --influxdb-url=http://localhost:8086 --influxdb.username=prom --influxdb.database=prometheus --influxdb.retention-policy=autogen
 ```
 
-
-## 3. config prometheus.yaml and start in master
+## 3. config prometheus.yaml and start prometheus in master
 ```
 qzhao-mbp:prometheus-2.13.1.darwin-amd64 qzhao$ cat prometheus.yml
 # my global config
@@ -118,5 +118,7 @@ scrape_configs:
 ```
 qzhao-mbp:prometheus-2.13.1.darwin-amd64 qzhao$ ./prometheus --config.file=prometheus.yml
 ```
-
-
+* check local-prometheus in master
+![](img/local-prometheus.png)
+* check k8s-prometheus in cluster
+![](img/k8s-prometheus.png)
