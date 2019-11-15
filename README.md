@@ -5,7 +5,7 @@ export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 ```
 # build remote_storage_adapter
-## 获取remote_storage_adapter源码后，go会自动把相关的源码编译成可执行文件，并且保存在$GOPATH/bin/目录下。
+## after we get sourcecode of remote_storage_adapter，go will automatically build sourcecode to a exec file，and save it to $GOPATH/bin/
 ```
 cd /Users/qzhao/go-workspace/bin
 go get github.com/prometheus/prometheus/documentation/examples/remote_storage/remote_storage_adapter
