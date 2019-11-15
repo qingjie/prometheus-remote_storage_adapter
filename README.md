@@ -47,3 +47,15 @@ qzhao-mbp:prometheus-2.13.1.darwin-amd64 qzhao$ ./prometheus --config.file=prome
 ```
 qzhao-mbp:consul qzhao$ ./consul agent -ui --data-dir /tmp/consul --dev -bind '{{GetInterfaceIP "en0"}}' -server --client=0.0.0.0
 ```
+## 5. reg
+```
+qzhao-mbp:consul qzhao$ cat service.json
+{
+	"service": {
+		"name": "prometheus",
+		"id": "prometheus",
+		"port": 80,
+		"address": "prometheus.p8290.us-east-1.kic-sandbox.shuttercloud.org"
+	}
+}
+```
