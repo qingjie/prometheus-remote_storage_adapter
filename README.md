@@ -2,6 +2,7 @@
 ```
 qzhao-mbp:consul qzhao$ ./consul agent -ui --data-dir /tmp/consul --dev -bind '{{GetInterfaceIP "en0"}}' -server --client=0.0.0.0
 ```
+
 ## 2. manually register prometheus of k8s to consul of master
 
 ```
@@ -19,7 +20,7 @@ qzhao-mbp:consul qzhao$ cat service.json
 	}
 }
 ```
-
+![](img/local-consul.png)
 
 ## 3. install influxdb and start in master
 
