@@ -33,7 +33,11 @@ qzhao-mbp:consul qzhao$ influx
 Connected to http://localhost:8086 version v1.7.9
 InfluxDB shell version: v1.7.9
 > show databases
-
+> auth
+username: prom
+password:
+> use prometheus
+> SHOW MEASUREMENTS
 ```
 
 ### create database prometheus in influx
