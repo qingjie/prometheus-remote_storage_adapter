@@ -3,7 +3,7 @@
 ### 
 ```
 brew install influxdb
-brew services restart influxdb
+brew services restart/stop/status influxdb
 influx
 ```
 ```
