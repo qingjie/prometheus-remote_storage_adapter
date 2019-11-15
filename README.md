@@ -1,8 +1,8 @@
-## 1. start consul
+## 1. start consul in master
 ```
 qzhao-mbp:consul qzhao$ ./consul agent -ui --data-dir /tmp/consul --dev -bind '{{GetInterfaceIP "en0"}}' -server --client=0.0.0.0
 ```
-## 2. manually register prometheus of k8s to local consul
+## 2. manually register prometheus of k8s to consul of master
 
 ```
 ./consul services register service.json
@@ -19,7 +19,7 @@ qzhao-mbp:consul qzhao$ cat service.json
 	}
 }
 ```
-## 3. config prometheus.yaml and start prometheus in master prometheus
+## 3. config prometheus.yaml of master and start
 ```
 qzhao-mbp:prometheus-2.13.1.darwin-amd64 qzhao$ cat prometheus.yml
 # my global config
