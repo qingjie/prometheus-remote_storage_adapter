@@ -6,6 +6,18 @@ brew install influxdb
 brew services restart influxdb
 influx
 ```
+```
+qzhao-mbp:consul qzhao$ influx
+Connected to http://localhost:8086 version v1.7.9
+InfluxDB shell version: v1.7.9
+> show databases
+
+```
+
+### create database prometheus
+```
+curl -XPOST http://localhost:8086/query --data-urlencode "q=CREATE DATABASE prometheus"
+```
 
 ## build remote_storage_adapter
 
@@ -25,7 +37,4 @@ go get github.com/prometheus/prometheus/documentation/examples/remote_storage/re
 ```
 INFLUXDB_PW=prom $GOPATH/bin/remote_storage_adapter --influxdb-url=http://localhost:8086 --influxdb.username=prom --influxdb.database=prometheus --influxdb.retention-policy=autogen
 ```
-### create database prometheus
-```
-curl -XPOST http://localhost:8086/query --data-urlencode "q=CREATE DATABASE prometheus"
-```
+
