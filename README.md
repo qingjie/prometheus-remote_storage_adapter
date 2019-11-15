@@ -10,7 +10,11 @@ export PATH=$PATH:$GOPATH/bin
 cd /Users/qzhao/go-workspace/bin
 go get github.com/prometheus/prometheus/documentation/examples/remote_storage/remote_storage_adapter
 ```
-start remote_storage_adapter and set username and password of Influxdb：
+## start remote_storage_adapter and set username and password of Influxdb：
 ```
 INFLUXDB_PW=prom $GOPATH/bin/remote_storage_adapter --influxdb-url=http://localhost:8086 --influxdb.username=prom --influxdb.database=prometheus --influxdb.retention-policy=autogen
+```
+## create database prometheus
+```
+curl -XPOST http://localhost:8086/query --data-urlencode "q=CREATE DATABASE prometheus"
 ```
