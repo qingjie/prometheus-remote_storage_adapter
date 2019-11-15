@@ -1,0 +1,1 @@
+# prometheus-remote_storage_adapter
