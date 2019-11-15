@@ -28,7 +28,7 @@ export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 ```
 
-### after we get sourcecode of remote_storage_adapter，go will automatically build sourcecode to a exec file，and save it to $GOPATH/bin/
+### after we get sourcecode of remote_storage_adapter，go will automatically build sourcecode to a file，and save it to $GOPATH/bin/
 ```
 cd /Users/qzhao/go-workspace/bin
 go get github.com/prometheus/prometheus/documentation/examples/remote_storage/remote_storage_adapter
