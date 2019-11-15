@@ -47,7 +47,12 @@ qzhao-mbp:prometheus-2.13.1.darwin-amd64 qzhao$ ./prometheus --config.file=prome
 ```
 qzhao-mbp:consul qzhao$ ./consul agent -ui --data-dir /tmp/consul --dev -bind '{{GetInterfaceIP "en0"}}' -server --client=0.0.0.0
 ```
-## 5. reg
+## 5. manually register prometheus of k8s to local consul
+
+```
+./consul services register service.json
+./consul services deregister service.json
+```
 ```
 qzhao-mbp:consul qzhao$ cat service.json
 {
