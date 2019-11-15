@@ -38,7 +38,55 @@ go get github.com/prometheus/prometheus/documentation/examples/remote_storage/re
 INFLUXDB_PW=prom $GOPATH/bin/remote_storage_adapter --influxdb-url=http://localhost:8086 --influxdb.username=prom --influxdb.database=prometheus --influxdb.retention-policy=autogen
 ```
 
-## 3. start prometheus
+## 3. config prometheus.yaml and start prometheus
+```
+qzhao-mbp:prometheus-2.13.1.darwin-amd64 qzhao$ cat prometheus.yml
+# my global config
+global:
+  scrape_interval:     15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
+  # scrape_timeout is set to the global default (10s).
+
+# Alertmanager configuration
+alerting:
+  alertmanagers:
+  - static_configs:
+    - targets:
+      # - alertmanager:9093
+
+# Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
+rule_files:
+  # - "first_rules.yml"
+  # - "second_rules.yml"
+
+#Remote write configuration (for Graphite, OpenTSDB, or InfluxDB).
+remote_write:
+   - url: "http://localhost:9201/write"
+
+# Remote read configuration (for InfluxDB only at the moment).
+remote_read:
+   - url: "http://localhost:9201/read"
+
+# A scrape configuration containing exactly one endpoint to scrape:
+# Here it's Prometheus itself.
+scrape_configs:
+  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+  - job_name: 'prometheus'
+
+    honor_labels: true
+    metrics_path: '/federate'
+
+    params:
+      'match[]':
+      - '{job="prometheus"}'
+      - '{__name__=~"job:.*"}'
+      - '{__name__="up"}'
+
+    consul_sd_configs:
+    - server: localhost:8500
+      services:
+      - prometheus
+```
 ```
 qzhao-mbp:prometheus-2.13.1.darwin-amd64 qzhao$ ./prometheus --config.file=prometheus.yml
 ```
