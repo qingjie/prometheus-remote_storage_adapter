@@ -40,5 +40,5 @@ INFLUXDB_PW=prom $GOPATH/bin/remote_storage_adapter --influxdb-url=http://localh
 
 ## 3. start prometheus
 ```
-./prometheus --config.file=prometheus.yml
+qzhao-mbp:prometheus-2.13.1.darwin-amd64 qzhao$ ./prometheus --config.file=prometheus.yml
 ```
