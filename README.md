@@ -14,7 +14,7 @@ InfluxDB shell version: v1.7.9
 
 ```
 
-### create database prometheus
+### create database prometheus in influx
 ```
 curl -XPOST http://localhost:8086/query --data-urlencode "q=CREATE DATABASE prometheus"
 ```
