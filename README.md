@@ -38,3 +38,7 @@ go get github.com/prometheus/prometheus/documentation/examples/remote_storage/re
 INFLUXDB_PW=prom $GOPATH/bin/remote_storage_adapter --influxdb-url=http://localhost:8086 --influxdb.username=prom --influxdb.database=prometheus --influxdb.retention-policy=autogen
 ```
 
+## 3. start prometheus
+```
+./prometheus --config.file=prometheus.yml
+```
