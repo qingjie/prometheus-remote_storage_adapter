@@ -1,6 +1,11 @@
-## setup influxdb
+## install influxdb and start
 
-
+### 
+```
+brew install influxdb
+brew services restart influxdb
+influx
+```
 
 ## build remote_storage_adapter
 
