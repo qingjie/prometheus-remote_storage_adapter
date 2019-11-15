@@ -1,10 +1,13 @@
-## set go env in .bash_profile
+
+## build remote_storage_adapter
+
+### set go env in .bash_profile
 ```
 export GOPATH=$HOME/go-workspace # don't forget to change your path correctly!
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 ```
-## build remote_storage_adapter
+
 ### after we get sourcecode of remote_storage_adapter，go will automatically build sourcecode to a exec file，and save it to $GOPATH/bin/
 ```
 cd /Users/qzhao/go-workspace/bin
