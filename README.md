@@ -1,4 +1,4 @@
-## install influxdb and start
+## 1. install influxdb and start
 
 ### 
 ```
@@ -19,7 +19,7 @@ InfluxDB shell version: v1.7.9
 curl -XPOST http://localhost:8086/query --data-urlencode "q=CREATE DATABASE prometheus"
 ```
 
-## build remote_storage_adapter
+## 2. build remote_storage_adapter
 
 ### set go env in .bash_profile
 ```
