@@ -41,6 +41,11 @@ password:
 > SHOW MEASUREMENTS
 ```
 
+```
+brew update
+brew install telegraf
+```
+
 ### create database prometheus in influx
 ```
 curl -XPOST http://localhost:8086/query --data-urlencode "q=CREATE DATABASE prometheus"
