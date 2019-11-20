@@ -40,7 +40,7 @@ password:
 > use prometheus
 > SHOW MEASUREMENTS
 ```
-
+telegraf
 ```
 brew update
 brew install telegraf
