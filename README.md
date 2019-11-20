@@ -44,6 +44,7 @@ password:
 ```
 brew update
 brew install telegraf
+telegraf -config /usr/local/etc/telegraf.conf
 ```
 
 ### create database prometheus in influx
